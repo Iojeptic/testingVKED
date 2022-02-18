@@ -1,0 +1,17 @@
+import pytest, math
+@pytest.mark.parametrize("test_int_input,expected", [(-10, "-0b1010"), (5, "0b101"), (0, "0b0")])
+def test_int_bin(test_int_input, expected):
+  assert bin(test_int_input) == expected
+def test_int_oct():
+  assert oct(10) == "0o12"
+def test_int_sin():
+  assert math.sin(10) > 1
+@pytest.mark.parametrize("test_tuple_input,expected", [((-10,0,'14'), -10), (('21',0,False), '21'), ((True,0,14), True)])
+def test_tuple_item(test_tuple_input, expected):
+   assert test_tuple_input[0] == expected
+def test_tuple_index():
+  a=(1,"2","True")
+  assert a.index("True") >1
+def test_tuple_in():
+  a=(1,"2","True")
+  assert "False" in a == True
